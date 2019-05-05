@@ -9,3 +9,32 @@
 * first node in a list is greater than the second and less than the third
 * if second node isn't empty, we should pass it to IOT
 * If it is empty, we should cons the first node, then pass the third node to IOT
+
+* Get each piece individually to make the code less confusing
+* treat them all as singular lists with a simple append
+
+(define (make-tree value left right)
+  (list left value right))
+
+; get root of tree
+(define (root-node tree)
+  (car tree))
+
+; get left side of tree
+(define (left-branch tree)
+  (cadr tree))
+
+; get right side of tree
+(define (right-branch tree)
+  (caddr tree))
+
+; go down left subtree first,
+; return to root when left tree returns null,
+; then go down right tree last
+(define (iot tree)
+  (if (null? tree)
+      '()
+      (append (iot (left-branch tree)) (list (root-node tree))(iot (right-branch tree))
+      )
+   )
+)
