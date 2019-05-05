@@ -1,0 +1,11 @@
+* Need to apply the same operation to every level
+* If it works on one level, it should work on every level
+* So, design it to:
+	* look into the child node on the right (cdr of node)
+	* If the child node is not null, pass the node through
+	* If it is null, print the current car, then if the second child node isn't null, pass it through
+	* Otherwise, you've reached the end a branch
+
+* first node in a list is greater than the second and less than the third
+* if second node isn't empty, we should pass it to IOT
+* If it is empty, we should cons the first node, then pass the third node to IOT
